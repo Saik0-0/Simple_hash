@@ -7,11 +7,13 @@ my_hash_pass = hashlib.new('md5')
 salt = uuid.uuid4().hex
 
 
+#   функция ввода и хеширования пароля
 def hash_password():
     my_hash_pass.update(bytes((enter_pass_entry.get() + salt).encode()))
     check_pass_entry.focus()
 
 
+#   функция проверки пароля
 def check_password():
     my_hash_check = hashlib.md5(bytes((check_pass_entry.get() + salt).encode()))
     if my_hash_check.digest() == my_hash_pass.digest():
