@@ -24,18 +24,16 @@ def sing_up_func():
 #   функция входа
 
 
-
-
 #  функция проверки пароля
-# def check_password():
-#     my_hash_check = hashlib.md5(bytes((check_pass_entry.get() + salt).encode()))
-#     if my_hash_check.digest() == my_hash_pass.digest():
-#         showinfo('Result', 'Password is correct!')
-#         enter_pass_entry.delete(0, END)
-#         check_pass_entry.delete(0, END)
-#         enter_pass_entry.focus()
-#     else:
-#         showerror('Result', 'Password is wrong(')
+def check_password():
+    pass_check = hashlib.md5(bytes(pass_entry.get() + salt_dict[login_entry.get()]))
+    if pass_check.digest() == pass_dict[login_entry.get()].digest():
+        showinfo('Result', 'Password is correct!')
+        login_entry.delete(0, END)
+        pass_entry.delete(0, END)
+        login_entry.focus()
+    else:
+        showerror('Result', 'Password is wrong(')
 
 
 #   создаём окно для ввода пароля
