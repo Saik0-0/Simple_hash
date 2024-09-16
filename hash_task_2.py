@@ -13,27 +13,33 @@ salt_dict = {}
 
 
 #   функция авторизации
-def sing_up_func():
+def sign_up_func():
     if login_entry.get() in pass_dict.keys():
         showerror('Error', 'You\'ve already authorised')
     else:
         salt_dict.setdefault(login_entry.get(), uuid.uuid4().hex)
         pass_dict.setdefault(login_entry.get(), hashlib.md5(bytes((pass_entry.get() + salt_dict[login_entry.get()]).encode())))
+        showinfo('Authorisation', 'Now you are authorised!')
 
 
 #   функция входа
+def sign_in_func():
+    if login_entry.get() not in pass_dict.keys():
+        showerror('Error', 'You\'ve not authorised')
+    else:
+        check_password()
 
 
 #  функция проверки пароля
 def check_password():
-    pass_check = hashlib.md5(bytes(pass_entry.get() + salt_dict[login_entry.get()]))
+    pass_check = hashlib.md5(bytes((pass_entry.get() + salt_dict[login_entry.get()]).encode()))
     if pass_check.digest() == pass_dict[login_entry.get()].digest():
-        showinfo('Result', 'Password is correct!')
+        showinfo('Result', 'Password is correct, welcome!')
         login_entry.delete(0, END)
         pass_entry.delete(0, END)
         login_entry.focus()
     else:
-        showerror('Result', 'Password is wrong(')
+        showerror('Result', 'Password is wrong, try again.')
 
 
 #   создаём окно для ввода пароля
@@ -55,10 +61,10 @@ pass_entry.place(height=40, width=150, x=30, y=120)
 
 
 #   кнопки ввода пароля и проверки
-enter_pass_butt = Button(text='Sign in', font='Sylfaen', background='PaleVioletRed')
-enter_pass_butt.place(height=30, width=90, x=210, y=60)
-check_pass_butt = Button(text='Sign up', font='Sylfaen 12', background='PaleVioletRed')
-check_pass_butt.place(height=25, width=80, x=215, y=110)
+sign_in_butt = Button(text='Sign in', font='Sylfaen', background='PaleVioletRed', command=sign_in_func)
+sign_in_butt.place(height=30, width=90, x=210, y=60)
+sign_un_butt = Button(text='Sign up', font='Sylfaen 12', background='PaleVioletRed', command=sign_up_func)
+sign_un_butt.place(height=25, width=80, x=215, y=110)
 
 
 root.mainloop()
