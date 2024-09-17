@@ -1,15 +1,14 @@
 import hashlib
+from cryptography.fernet import Fernet
 from tkinter import *
 from tkinter.messagebox import showinfo, showerror
 import uuid
 
-first_hash_pass = hashlib.new('md5')
-second_hash_pass = hashlib.new('md5')
-third_hash_pass = hashlib.new('md5')
-
-
 pass_dict = {}
 salt_dict = {}
+
+key = Fernet.generate_key()
+cipher = Fernet(key)
 
 
 #   функция авторизации
@@ -17,8 +16,8 @@ def sign_up_func():
     if login_entry.get() in pass_dict.keys():
         showerror('Error', 'You\'ve already authorised')
     else:
-        salt_dict.setdefault(login_entry.get(), uuid.uuid4().hex)
-        pass_dict.setdefault(login_entry.get(), hashlib.md5(bytes((pass_entry.get() + salt_dict[login_entry.get()]).encode())))
+        salt_dict.setdefault(login_entry.get(), encrypt(uuid.uuid4().hex))
+        pass_dict.setdefault(login_entry.get(), hashlib.md5(bytes((pass_entry.get() + decrypt(salt_dict[login_entry.get()])).encode())))
         showinfo('Authorisation', 'Now you are authorised!')
 
 
@@ -32,7 +31,7 @@ def sign_in_func():
 
 #  функция проверки пароля
 def check_password():
-    pass_check = hashlib.md5(bytes((pass_entry.get() + salt_dict[login_entry.get()]).encode()))
+    pass_check = hashlib.md5(bytes((pass_entry.get() + decrypt(salt_dict[login_entry.get()])).encode()))
     if pass_check.digest() == pass_dict[login_entry.get()].digest():
         showinfo('Result', 'Password is correct, welcome!')
         login_entry.delete(0, END)
@@ -40,6 +39,15 @@ def check_password():
         login_entry.focus()
     else:
         showerror('Result', 'Password is wrong, try again.')
+
+
+#   функции шифровки и дешифровки соли
+def encrypt(salt):
+    return cipher.encrypt(salt.encode())
+
+
+def decrypt(salt):
+    return cipher.decrypt(salt).decode()
 
 
 #   создаём окно для ввода пароля
