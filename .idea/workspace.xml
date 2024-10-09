@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f71df83f-d239-4e94-834d-9cbb381564ea" name="Changes" comment="step 4">
+    <list default="true" id="f71df83f-d239-4e94-834d-9cbb381564ea" name="Changes" comment="step 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hash_task_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/hash_task_2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,17 +31,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.1.executor": "Run",
-    "Python.hash.executor": "Run",
-    "Python.hash_task_1.executor": "Run",
-    "Python.hash_task_2.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hash.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hash_task_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.hash_task_2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -99,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726530209417</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="step 5">
+      <option name="closed" value="true" />
+      <created>1726532153519</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726532153519</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -107,6 +114,7 @@
     <MESSAGE value="step 2" />
     <MESSAGE value="step 3" />
     <MESSAGE value="step 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="step 4" />
+    <MESSAGE value="step 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="step 5" />
   </component>
 </project>

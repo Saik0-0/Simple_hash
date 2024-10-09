@@ -31,6 +31,8 @@ root.title('Authorization')
 root.geometry('330x200')
 root['bg'] = 'LightPink'
 root.resizable(False, False)
+Label(text='Login:', font='Sylfaen', background='PaleVioletRed').place(x=30, y=5)
+Label(text='Password:', font='Sylfaen', background='PaleVioletRed').place(x=30, y=85)
 
 
 #   поля ввода пароля
